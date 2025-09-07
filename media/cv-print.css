@@ -28,8 +28,41 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+/* Allow breaking long words and wrap text within container width */
+p, li, td, th, div, span {
+  white-space: normal;           /* Normal wrapping, no nowrap */
+  overflow-wrap: break-word;     /* Break long words if needed */
+  word-wrap: break-word;         /* Legacy fallback */
+  word-break: break-word;        /* Break words to avoid overflow */
+  hyphens: auto;                 /* Optional hyphenation where supported */
+  max-width: 100%;               /* Constrain width to container */
+  box-sizing: border-box;        /* Include padding/border in width */
+}
+
+/* Ensure tables and blocks respect container widths */
+table, .footer, #webaddress, p {
+  max-width: 100%;             /* Respect container width */
+  width: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* body { */
+/* 	line-height: 1; */
+/*     margin-top: 0em;      /1* reduced top margin *1/ */
+/* } */
 body {
-	line-height: 1;
+	font: normal normal 400;
+	font-size: 93%;
+	/* font-size: 10pt; */
+	/* line-height: 1.5em; */
+	/* line-height: 1.35em; */
+	/* font-family: Verdana, sans-serif; */
+	font-family: "Open sans", sans-serif;
+	/* margin-top: 1em; */
+	/* margin-left: 1em; */
 }
 ol, ul {
 	list-style: none;
@@ -42,119 +75,24 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+/* Compact tables */
 table {
+    font-size: 9pt;
 	border-collapse: collapse;
 	border-spacing: 0;
+    position: relative;
+    left: 37%;
+    width: 65%;
+    /* margin-top: 1em; */
+    margin-top: 0;         /* Aligns with section title above */
+    margin-bottom: 1em;
 }
 
 /* end of reset */
 
-/* faux Wikipedia logo font */
-@font-face { font-family: 'Linux Libertine'; font-style: normal; font-weight: 400; src: local('Linux Libertine'),url(//brick.a.ssl.fastly.net/fonts/linuxlibertine/400.woff) format('woff'); } .fa-wikipedia:before { font-family: 'Linux Libertine', 'Times New Roman', Times, serif; font-weight: 400; content: "W"; }
-
-body {
-	font: normal normal 400;
-	font-size: 9pt;
-	line-height: 1.35em;
-	font-family: "Open sans", sans-serif;
-	/*margin-top: 1em;
-	margin-left: 1em;*/
-}
-
-p {
-	position: relative;
-	left: 28%;
-	/* margin-bottom: 0.2em; */
-	margin-right: 0;
-	width: 70%;
-}
-
-code {
-	font: normal normal;
-	font-size: 70%;
-	font-family: Menlo, monospace,s ans-serif;
-	color: #444;
-}
-
-p code {
-	position: absolute;
-	left: -10%;
-}
-
-
-ul {
-	position: relative;
-	left: 28%;
-	width: 65%;
-	margin-bottom: 1em;
-	margin-top: 2em;
-	columns: 3;
-	-webkit-columns: 3;
-	-moz-columns: 3;
-}
-
-li {
-	/* empty */
-}
-
-li ul {
-	position: relative;
-	left: 0;
-	margin-top: 0.25em;
-}
-
-h1,h2,h3,h4 {
-	font-weight: 400;
-	font-family: Cousine,Verdana,sans-serif;
-	width: 65%;
-}
-
-h1 {
-	color: #222;
-	text-align: left;
-	font-size: 2.2em;
-	line-height: 1em;
-	position: relative;
-	left: 28%;
-}
-
-h1+p {
-	/*subtitle*/
-	font-style: italic;
-	font-size: 110%;
-	line-height: 2em;
-	margin-top: 0.1em;
-	margin-bottom: 0em !important;
-}
-
-h2 {
-	font-size: 1.1em;
-	color: #a00;
-	margin-top: 1em;
-	position: relative;
-	top: 1.5em;
-	text-align: right;
-	width: 18%;
-}
-
-h2+p {
-	margin-top: 2.1em;
-}
-
-h3 {
-	color: #F07415;
-	font-size: 1em;
-	line-height: 2em;
-	color: #444;
-	position: relative;
-	top: 1.6em;
-	text-align: right;
-	width: 20%;
-}
-
 a {
 	color: inherit;
-	text-decoration:none
+	/*text-decoration:none*/
 }
 
 a:hover {
@@ -162,10 +100,10 @@ a:hover {
 }
 
 #webaddress {
- 	margin-top: 0em;
+	margin-top: 0em;
 	position: relative;
-	left: 28%;
-	color: #ccc;
+    margin-left: 37%;
+	color: #aaa;
 	font-family: Menlo,monospace,sans-serif;
 	font-size: 80%;
 }
@@ -175,22 +113,16 @@ a:hover {
 }
 
 em {
-	font-style: normal;
-	color: #2d4e5e
+	/*font-weight: bold; */
+	font-style: italic;
 }
 
 strong {
 	font-weight: bold;
 }
 
-#ghbutton {
+#address {
 	display: none;
-	visibility: hidden;
-}
-
-
-#projects {
-	 /* page-break-before: always;  */
 }
 
 .footer {
@@ -198,9 +130,87 @@ strong {
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
 		position: relative;
-		left: 33%;
+		left: 25%;
 		margin-top: 2em;
-		margin-bottom: 3em;
+		margin-bottom: 7em;
 		margin-right: 0;
 		width: 65%;
+}
+
+/* faux Wikipedia logo font */
+@font-face {
+    font-family: 'Linux Libertine';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Linux Libertine'),url(//brick.a.ssl.fastly.net/fonts/linuxlibertine/400.woff) format('woff'); } .fa-wikipedia:before {
+        font-family: 'Linux Libertine', 'Times New Roman', Times, serif;
+        font-weight: 400;
+        content: "W";
+    }
+
+h1 {
+	position: relative;
+	left: 37%;
+	font-weight: 400;
+	font-family: Cousine,Verdana,sans-serif;
+	/* width: 65%; */
+	color: #222;
+	text-align: left;
+	font-size: 2.2em;
+	line-height: 1em;
+}
+
+h1+p {
+	/*subtitle*/
+	color: #1D49A0;
+	/* font-style: italic; */
+	font-size: 110%;
+	line-height: 2em;
+	/* margin-top: 0.5em; */
+	margin-bottom: 0em !important;
+}
+
+h2 {
+	position: relative;
+    left: 0%;
+	font-size: 1em;
+	/* color: #a00; */
+	color: #1D49A0;
+	/* margin-top: 2em; */
+	/* top: 1.4em; */
+	top: 1.3em;
+	text-align: right;
+	width: 15%;
+}
+
+h3 {
+	position: relative;
+	top: 1em;
+	/* color: #F07415; */
+	color: #222;
+	font-size: 1em;
+	/* line-height: 2em; */
+	text-align: right;
+	width: 15%;
+}
+p {
+	position: relative;
+	left: 37%;
+	margin-bottom: 0.7em;
+    /* margin-left: 1em; /1* or 2em, some fixed left margin *1/ */
+	margin-right: 0;
+	width: 65%;
+    /* width: auto; */
+}
+
+code {
+	font: normal normal;
+	font-size: 90%;
+	font-family: Menlo, monospace, sans-serif;
+	color: #aaa;
+}
+
+p code {
+	position: absolute;
+	left: -27%;
 }
