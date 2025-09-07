@@ -39,7 +39,7 @@ Contract Agent, [JRC](https://ec.europa.eu/jrc/en), EC
 
 `Jan 2017-Sep 2019`
 __Geomatics & Remote Sensing expert__<br/>
-Freelancer / Extra-muros [JRC](https://ec.europa.eu/jrc/en), EC
+Freelancer / Intra-muros Staff, [JRC](https://ec.europa.eu/jrc/en), EC
 
 `Dec 2015-Sep 2016`
 __Geospatial support__ for [mapx.io](http://mapx.io), [UNEP/GRID-Geneva](https://unepgrid.ch)
